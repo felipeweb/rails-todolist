@@ -10,13 +10,13 @@ gem 'twitter-bootstrap-rails'
 group :development, :test do
   gem 'byebug', '~> 8.2', '>= 8.2.4'
   gem 'rspec-rails', '~> 3.0'
-  gem 'capybara', '~> 2.7'
+  gem 'capybara'
 end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.2'
-  gem 'factory_girl', '~> 4.7'
+  gem 'factory_girl_rails'
   gem 'rspec', '~> 3.4'
 end
 
