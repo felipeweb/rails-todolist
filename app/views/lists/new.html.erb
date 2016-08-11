@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-9">
+    <div class="jumbotron">
+      <h1>New List</h1>
+      <p>
+      <div class="form">
+        <%= form_for @list, html: {class: 'simple_form new_list' } do |f| %>
+            <%= f.text_field :name, placeholder: 'List name', class: ' input-small form-name' %>
+            <br/>
+            <%= f.check_box :public, checked_value: true, unchecked_value: false, class: 'checkbox-form' %>
+            <%= f.label :public, 'Make it public!' %>
+            <br/>
+            <%= f.submit 'Create my list', class: 'btn form-button' %>
+        <% end %>
+      </div>
+      </p>
+    </div>
+  </div>
+</div>

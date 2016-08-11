@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-9">
+    <div class="jumbotron">
+      <h1><%= @task.list.name %></h1>
+      <h3> Task's </h3>
+      <p>
+      <div class="form">
+        <%= form_for @task, html: {class: 'simple_form' } %>
+      </div>
+      </p>
+    </div>
+  </div>
+</div>

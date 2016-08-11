@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-9">
+    <div class="jumbotron">
+      <h1><%= @list.name %></h1>
+      <p>
+        <%= check_box_tag('Favorite', @list.id, current_user.favorited?(@list), { 'id' => 'favorite', 'class' => 'favorite' }) %> Favorite
+      </p>
+      <p>
+        <%= check_box_tag('Make it public!', @list.id, @list.public, { 'id' => 'public_list', 'class' => 'public_list' }) %> Make it public!
+      </p>
+      <h3> Task's </h3>
+      <p>
+      <div class="form">
+        <%= form_for @list, html: {class: 'simple_form edit_list' } do |f| %>
+            <% f.fields_for :tasks do |post_form| %>
+                <%= post_form.text_field :name, placeholder: 'New Task name', class: 'input-small form-name new_task', disabled: !@list.created_by?(current_user) %>
+            <% end %>
+        <% end %>
+      </div>
+      </p>
+      <p>
+      <div class="tasks" data-url="<%= list_tasks_path(@list) %>">
+        <ul class="list-unstyled">
+          <% @list.tasks.each do |task| %>
+              <li class="<%= class_for(task) %>"
+                  data-url="<%= list_task_path(@list.id, task) %>">
+                <%= check_box_tag(task.name, task.id, task.done?,
+                                  disabled: !@list.created_by?(current_user)) %>
+                <%= link_to task.name, list_task_path(task.list.id, task.id), class: 'list-link list favorite' %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+      </p>
+    </div>
+  </div>
+</div>
