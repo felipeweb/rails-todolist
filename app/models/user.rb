@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates_presence_of :name, :encrypted_password, :email
 
   def get_showable_lists
-    lists.where("(public = ? or user_id = ?) and done = ?", true, self.id, false)
+    lists.where("public = ? or user_id = ?", true, self.id)
   end
 
   def favorited?(list)

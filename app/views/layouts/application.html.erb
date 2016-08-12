@@ -22,6 +22,7 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path, class: 'active'%></li>
+        <li><%= link_to 'Create List', '/lists/new', class: 'active'%></li>
         <% if user_signed_in? %>
             <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'sign-out general-link' %></li>
         <% end %>
